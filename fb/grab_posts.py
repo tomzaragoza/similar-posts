@@ -1,7 +1,5 @@
 import facebook
-from authenticate import *
+import login_fb as l
 
-app_id = ''
-app_secret = ''
-
-access_token = get_tokens(app_id, app_secret)
+access_token = l.login(l.ACCESS_TOKEN)
+print "Access_token: ", access_token
