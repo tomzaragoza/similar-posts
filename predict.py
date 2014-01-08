@@ -1,11 +1,7 @@
-import os
 import sys
 import scipy as sp
 from pymongo import MongoClient
 from datetime import datetime
-from pprint import pprint as pretty
-from sklearn.feature_extraction.text import CountVectorizer
-from stemming import StemmedCountVectorizer
 
 # mongo setup
 mongo = MongoClient()
@@ -17,6 +13,7 @@ calculations = db['calculations']
 def dist_raw(v1, v2):
 	delta = v1 - v2
 	return sp.linalg.norm(delta.toarray())
+
 
 # # calculate the vector distance
 def dist_norm(v1, v2):
@@ -73,17 +70,3 @@ def calculate_distances(all_posts, vectorizer):
 						best_i = i
 				if best_dist > 0.0:
 					calculations.insert({'name': name, 'content-test': article_name, 'best-post': best_doc, 'best-distance': best_dist})
-
-if __name__ == "__main__":
-
-	vectorizer = StemmedCountVectorizer(min_df=1, stop_words="english") # minimum document frequency
-	content = [	"The Brain, in Exquisite Detail", 
-				"Asian Factories See Sense and Savings in Environmental Certification",
-				"Rangers Bury the Maple Leafs Beneath 7 Goals",
-				"Steep Penalties Taken in Stride by JPMorgan Chase",
-				"Weight-Loss Companies Charged With Fraud",
-				"What Your Cat Is Thinking",
-				"Missing a Cancer Diagnosis"]
-
-	all_posts = get_all_posts()
-	calculate_distances(all_posts, vectorizer)
