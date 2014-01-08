@@ -1,6 +1,13 @@
 import fb
 from stemming import StemmedCountVectorizer
 from predict import *
+from bson import Binary, Code
+from bson.json_util import dumps, loads
+
+
+mongo = MongoClient()
+db = mongo['predict-news-posts']
+collection = db['calculations']
 
 if __name__ == "__main__":
 
@@ -20,3 +27,7 @@ if __name__ == "__main__":
 	all_posts = get_all_posts()
 	calculate_distances(all_posts, vectorizer, content)
 
+	print 
+	for article in content:
+		calculation = collection.find({'content-test': article}).sort('best-distance', 1).limit(1).next()
+		print "{0}: {1}'s post '{2}' with a distance of {3}".format(article, calculation['name'], calculation['best-post'], calculation['best-distance'])
