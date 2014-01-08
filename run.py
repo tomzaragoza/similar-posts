@@ -28,6 +28,8 @@ if __name__ == "__main__":
 	calculate_distances(all_posts, vectorizer, content)
 
 	print 
+	print
+	print "Results:"
 	for article in content:
 		calculation = collection.find({'content-test': article}).sort('best-distance', 1).limit(1).next()
 		print "{0}: {1}'s post '{2}' with a distance of {3}".format(article, calculation['name'], calculation['best-post'], calculation['best-distance'])
