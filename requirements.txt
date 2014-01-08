@@ -1,0 +1,6 @@
+pymongo
+scipy
+numpy
+facebook-sdk
+scikit-learn
+nltk
