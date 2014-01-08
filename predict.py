@@ -14,14 +14,11 @@ db = mongo['predict-news-posts']
 collection = db['friends-posts-links']
 calculations = db['calculations']
 
-content = ["The Brain, in Exquisite Detail", "Asian Factories See Sense and Savings in Environmental Certification"]
+content = [	"The Brain, in Exquisite Detail", 
+			"Asian Factories See Sense and Savings in Environmental Certification",
+			"Rangers Bury the Maple Leafs Beneath 7 Goals"]
 X = vectorizer.fit_transform(content)
-print vectorizer.get_feature_names()
-print X.toarray().transpose()
 
-
-# DIR = "/home/tom/learning-ml-python/ch03/data/toy"
-# posts = [open(os.path.join(DIR, f)).read() for f in os.listdir(DIR)]
 
 # # calculate Euclidean distance, of new post with the old posts
 def dist_raw(v1, v2):
@@ -52,7 +49,7 @@ for friend_post in list(friend_posts):
 
 # now to find out the distances for each friend's posts
 for name, posts in all_posts.iteritems():
-	# print name, posts
+
 	if len(posts) > 0:
 		for article_name in content:
 			print '{0}: for {1} -> article "{2}"'.format(datetime.now(), name.encode('utf-8'), article_name.encode('utf-8'))
