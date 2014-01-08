@@ -1,4 +1,4 @@
-import fb_sdk as facebook
+import facebook
 import login_fb as l
 
 from pymongo import MongoClient
