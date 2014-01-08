@@ -1,5 +1,5 @@
-Facebook Predict Posts
+Facebook Similar Posts
 ========================
 
-Of your friends, who is the most likely to post the article you provide?
+Of your friends, who posts similar links & articles to the article you provide?
 That's what this app is for. :)
