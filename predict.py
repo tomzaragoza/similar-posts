@@ -40,7 +40,7 @@ def get_all_posts():
 	return all_posts
 
 # now to find out the distances for each friend's posts
-def calculate_distances(all_posts, vectorizer):
+def calculate_distances(all_posts, vectorizer, content):
 	for name, posts in all_posts.iteritems():
 
 		if len(posts) > 0:

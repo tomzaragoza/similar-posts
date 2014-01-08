@@ -18,5 +18,5 @@ if __name__ == "__main__":
 				"Missing a Cancer Diagnosis"]
 
 	all_posts = get_all_posts()
-	calculate_distances(all_posts, vectorizer)
+	calculate_distances(all_posts, vectorizer, content)
 
