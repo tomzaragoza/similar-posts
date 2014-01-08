@@ -66,7 +66,7 @@ def calculate_distances(all_posts, vectorizer):
 					post_vec = X_train.getrow(i)
 					d = dist_norm(post_vec, article_name_vec)
 					# d = dist_raw(post_vec, article_name_vec)
-					print "=== Post {0} with dist={1}: {2}".format(i, d, post.encode('utf-8'))
+					# print "=== Post {0} with dist={1}: {2}".format(i, d, post.encode('utf-8'))
 					if d < best_dist:
 						best_doc = post
 						best_dist = d
@@ -79,7 +79,11 @@ if __name__ == "__main__":
 	vectorizer = StemmedCountVectorizer(min_df=1, stop_words="english") # minimum document frequency
 	content = [	"The Brain, in Exquisite Detail", 
 				"Asian Factories See Sense and Savings in Environmental Certification",
-				"Rangers Bury the Maple Leafs Beneath 7 Goals"]
+				"Rangers Bury the Maple Leafs Beneath 7 Goals",
+				"Steep Penalties Taken in Stride by JPMorgan Chase",
+				"Weight-Loss Companies Charged With Fraud",
+				"What Your Cat Is Thinking",
+				"Missing a Cancer Diagnosis"]
 
 	all_posts = get_all_posts()
 	calculate_distances(all_posts, vectorizer)
