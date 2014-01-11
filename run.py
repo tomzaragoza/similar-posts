@@ -1,5 +1,5 @@
 import fb
-from stemming import StemmedCountVectorizer
+from stemming import StemmedCountVectorizer, StemmedTfidfVectorizer
 from predict import *
 from bson import Binary, Code
 from bson.json_util import dumps, loads
@@ -15,7 +15,8 @@ if __name__ == "__main__":
 	if answer.lower() in ['y', 'yes']:
 		fb.grab_posts()
 
-	vectorizer = StemmedCountVectorizer(min_df=1, stop_words="english") # minimum document frequency
+	# vectorizer = StemmedCountVectorizer(min_df=1, stop_words="english") # minimum document frequency
+	vectorizer = StemmedTfidfVectorizer(min_df=1, stop_words="english", charset_error="ignore")
 	content = [	"The Brain, in Exquisite Detail", 
 				"Asian Factories See Sense and Savings in Environmental Certification",
 				"Rangers Bury the Maple Leafs Beneath 7 Goals",
