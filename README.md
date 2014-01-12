@@ -1,5 +1,4 @@
-F
-icebook Similar Posts
+Facebook Similar Posts
 ========================
 
 Of your friends, who posts similar links & articles to the article you provide?
